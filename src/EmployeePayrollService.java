@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -28,6 +32,16 @@ private List<Employee> employeeList;
     public void writeEmployeeData() {
         for (Employee employee : employeeList) {
             System.out.println(employee);
+        }
+    }
+     private static final String PAYROLL_FILE = "payrollfile.txt";
+    
+    public void writeEmployeePayrollToFile(List<Employee> employees) throws IOException {
+        try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(PAYROLL_FILE))) {
+            for (Employee employee : employees) {
+                writer.write(employee.toString());
+                writer.newLine();
+            }
         }
     }
 

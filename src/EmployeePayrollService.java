@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class EmployeePayrollService {
+private List<Employee> employeeList;
+    
+    public EmployeePayrollService() {
+        employeeList = new ArrayList<>();
+    }
+
+    public void readEmployeeData() {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter Employee ID: ");
+        int id = scanner.nextInt();
+        scanner.nextLine();
+        
+        System.out.println("Enter Employee Name: ");
+        String name = scanner.nextLine();
+        
+        System.out.println("Enter Employee Salary: ");
+        double salary = scanner.nextDouble();
+        
+        employeeList.add(new Employee(id, name, salary));
+    }
+
+    public void writeEmployeeData() {
+        for (Employee employee : employeeList) {
+            System.out.println(employee);
+        }
+    }
+
+}

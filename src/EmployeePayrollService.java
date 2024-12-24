@@ -44,5 +44,16 @@ private List<Employee> employeeList;
             }
         }
     }
+    public void printPayrollFile() throws IOException {
+        Files.lines(Paths.get(PAYROLL_FILE)).forEach(System.out::println);
+    }
+    
+    public List<String> readPayrollFile() throws IOException {
+        return Files.readAllLines(Paths.get(PAYROLL_FILE));
+    }
+    
+    public long getEntryCount() throws IOException {
+        return Files.lines(Paths.get(PAYROLL_FILE)).count();
+    }
 
 }

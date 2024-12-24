@@ -31,6 +31,13 @@ public class Main {
         );
         EmployeePayrollService uc4Service = new EmployeePayrollService();
         uc4Service.writeEmployeePayrollToFile(employees);
+        System.out.println("\nReading and Printing File");
+        EmployeePayrollService uc5_6Service = new EmployeePayrollService();
+        System.out.println("Printing payroll file:");
+        uc5_6Service.printPayrollFile();
+        System.out.println("Number of entries: " + uc5_6Service.getEntryCount());
+        System.out.println("Reading payroll file:");
+        uc5_6Service.readPayrollFile().forEach(System.out::println);
 		}
 		
 		 catch (Exception e) {
